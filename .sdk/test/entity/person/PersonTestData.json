@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "person": {
+      "PERSON00": {
+        "case": [],
+        "detail": "s33",
+        "id": "PERSON00",
+        "name": "s35",
+        "position": "s36"
+      },
+      "PERSON01": {
+        "case": [],
+        "detail": "s65",
+        "id": "PERSON01",
+        "name": "s67",
+        "position": "s68"
+      },
+      "PERSON02": {
+        "case": [],
+        "detail": "s97",
+        "id": "PERSON02",
+        "name": "s99",
+        "position": "s9a"
+      }
+    }
+  },
+  "new": {
+    "person": {
+      "person_ref01": {
+        "case": [],
+        "detail": "sc9",
+        "name": "scb",
+        "position": "scc"
+      }
+    }
+  }
+}

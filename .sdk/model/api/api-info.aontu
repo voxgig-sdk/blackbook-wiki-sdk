@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/blackbookwiki"
+      }
+      description: "The Blackbook Wiki API provides access to information pertaining to black-book.wiki, allowing developers to interact with the site's data programmatically. This includes functionalities like fetching a list of relevant persons and additional features related to managing data associated with political motivations and accountability."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://black-book.wiki/api/v1"
+        }
+      ]
+      summary: "The Blackbook Wiki API provides access to information pertaining to black-book.wiki, allowing developers to interact with the site's data programmatically."
+      title: "Blackbook Wiki API"
+      version: "1.0.0"
+      website: "https://github.com/l0v3m0n3y/blackbookwiki"
+    }
+  }
+}
+

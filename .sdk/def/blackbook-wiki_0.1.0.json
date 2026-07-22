@@ -1,0 +1,140 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Blackbook Wiki API",
+    "description": "The Blackbook Wiki API provides access to information pertaining to black-book.wiki, allowing developers to interact with the site's data programmatically. This includes functionalities like fetching a list of relevant persons and additional features related to managing data associated with political motivations and accountability.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/blackbookwiki"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://black-book.wiki/api/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/persons/": {
+      "get": {
+        "summary": "Get persons list",
+        "description": "Fetches a list of persons from the black-book.wiki database based on specified criteria. This endpoint allows filtering by various parameters such as case types and other attributes related to political motivations and accountability.",
+        "operationId": "getPersonsList",
+        "parameters": [
+          {
+            "name": "case_navalny",
+            "in": "query",
+            "description": "Filter persons related to the Navalny case",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "internet_blocking",
+            "in": "query",
+            "description": "Filter persons related to internet blocking cases",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of persons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "description": "Total number of persons returned"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "Unique identifier for the person"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Full name of the person"
+                          },
+                          "position": {
+                            "type": "string",
+                            "description": "Position or role of the person (e.g., judge, investigator, prosecutor)"
+                          },
+                          "cases": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "List of cases associated with the person"
+                          },
+                          "details": {
+                            "type": "string",
+                            "description": "Additional details about the person"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Persons"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Persons",
+      "description": "Operations related to fetching and managing persons data from the black-book.wiki database"
+    }
+  ],
+  "externalDocs": {
+    "description": "GitHub Repository and Documentation",
+    "url": "https://github.com/l0v3m0n3y/blackbookwiki"
+  }
+}
