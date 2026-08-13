@@ -15,8 +15,8 @@ declare(strict_types=1);
 /** Person entity data model. */
 class Person
 {
-    public ?array $case = null;
-    public ?string $detail = null;
+    public ?array $cases = null;
+    public ?string $details = null;
     public ?int $id = null;
     public ?string $name = null;
     public ?string $position = null;
@@ -25,8 +25,8 @@ class Person
 /** Request payload for Person#list. */
 class PersonListMatch
 {
-    public ?array $case = null;
-    public ?string $detail = null;
+    public ?array $cases = null;
+    public ?string $details = null;
     public ?int $id = null;
     public ?string $name = null;
     public ?string $position = null;

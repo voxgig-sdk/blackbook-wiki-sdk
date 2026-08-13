@@ -43,8 +43,8 @@ class BlackbookWikiTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('BLACKBOOKWIKI_TEST_LIVE');
-        $override = self::getenv('BLACKBOOKWIKI_TEST_OVERRIDE');
+        $live = self::getenv('BLACKBOOK_WIKI_TEST_LIVE');
+        $override = self::getenv('BLACKBOOK_WIKI_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class BlackbookWikiTestRunner
             }
         }
 
-        $explain = self::getenv('BLACKBOOKWIKI_TEST_EXPLAIN');
+        $explain = self::getenv('BLACKBOOK_WIKI_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['BLACKBOOKWIKI_TEST_EXPLAIN'] = $explain;
+            $m['BLACKBOOK_WIKI_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -61,11 +61,11 @@ function person_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["BLACKBOOKWIKI_TEST_PERSON_ENTID"] = {},
-    ["BLACKBOOKWIKI_TEST_LIVE"] = "FALSE",
+    ["BLACKBOOK_WIKI_TEST_PERSON_ENTID"] = {},
+    ["BLACKBOOK_WIKI_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["BLACKBOOKWIKI_TEST_LIVE"] == "TRUE"
+  local live = env["BLACKBOOK_WIKI_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

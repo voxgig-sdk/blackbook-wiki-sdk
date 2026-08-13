@@ -19,11 +19,15 @@ import {
 describe('PersonDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when BLACKBOOKWIKI_TEST_LIVE=TRUE.
-  afterEach(liveDelay('BLACKBOOKWIKI_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when BLACKBOOK_WIKI_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BLACKBOOK_WIKI_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new BlackbookWikiSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'BLACKBOOKWIKI_TEST_PERSON_ENTID': {},
-    'BLACKBOOKWIKI_TEST_LIVE': 'FALSE',
+    'BLACKBOOK_WIKI_TEST_PERSON_ENTID': {},
+    'BLACKBOOK_WIKI_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.BLACKBOOKWIKI_TEST_LIVE
+  const live = 'TRUE' === env.BLACKBOOK_WIKI_TEST_LIVE
 
   if (live) {
     const client = new BlackbookWikiSDK({
     })
 
-    let idmap: any = env['BLACKBOOKWIKI_TEST_PERSON_ENTID']
+    let idmap: any = env['BLACKBOOK_WIKI_TEST_PERSON_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

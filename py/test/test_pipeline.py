@@ -16,11 +16,11 @@
 import pytest
 
 from blackbookwiki_sdk import BlackbookWikiSDK
-from core.error import BlackbookWikiError
-from core.result import BlackbookWikiResult
-from core.response import BlackbookWikiResponse
-from core.spec import BlackbookWikiSpec
-from feature.base_feature import BlackbookWikiBaseFeature
+from blackbookwiki_sdk.core.error import BlackbookWikiError
+from blackbookwiki_sdk.core.result import BlackbookWikiResult
+from blackbookwiki_sdk.core.response import BlackbookWikiResponse
+from blackbookwiki_sdk.core.spec import BlackbookWikiSpec
+from blackbookwiki_sdk.feature.base_feature import BlackbookWikiBaseFeature
 
 
 def _client():

@@ -260,8 +260,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"case"` |  |
-| `"detail"` |  |
+| `"cases"` |  |
+| `"details"` |  |
 | `"id"` |  |
 | `"name"` |  |
 | `"position"` |  |
@@ -289,8 +289,8 @@ Create an instance: `person := client.Person(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `case` | `[]any` |  |
-| `detail` | `string` |  |
+| `cases` | `[]any` |  |
+| `details` | `string` |  |
 | `id` | `int` |  |
 | `name` | `string` |  |
 | `position` | `string` |  |

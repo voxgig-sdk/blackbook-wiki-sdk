@@ -43,7 +43,7 @@ local persons, err = client:Person():list()
 if err then error(err) end
 
 for _, item in ipairs(persons) do
-  print(item["id"], item["detail"])
+  print(item["id"], item["details"])
 end
 ```
 
@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local person, err = client:Person():load()
+    local person, err = client:Person():list()
     if err then error(err) end
-    -- person is the loaded record
+    -- person is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,8 +231,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `case` |  |
-| `detail` |  |
+| `cases` |  |
+| `details` |  |
 | `id` |  |
 | `name` |  |
 | `position` |  |
@@ -260,8 +260,8 @@ Create an instance: `local person = client:Person(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `case` | `table` |  |
-| `detail` | `string` |  |
+| `cases` | `table` |  |
+| `details` | `string` |  |
 | `id` | `number` |  |
 | `name` | `string` |  |
 | `position` | `string` |  |

@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ BlackbookWikiUtility::setRegistrar(function (BlackbookWikiUtility $u): void {
     $u->prepare_params = [BlackbookWikiPrepareParams::class, 'call'];
     $u->prepare_path = [BlackbookWikiPreparePath::class, 'call'];
     $u->prepare_query = [BlackbookWikiPrepareQuery::class, 'call'];
+    $u->graphql_body = [BlackbookWikiGraphql::class, 'body'];
+    $u->graphql_errors = [BlackbookWikiGraphql::class, 'errors'];
     $u->result_basic = [BlackbookWikiResultBasic::class, 'call'];
     $u->result_body = [BlackbookWikiResultBody::class, 'call'];
     $u->result_headers = [BlackbookWikiResultHeaders::class, 'call'];

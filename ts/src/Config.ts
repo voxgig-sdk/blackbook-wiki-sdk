@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'BlackbookWiki',
   }
 
 
@@ -56,14 +56,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "case",
+          "name": "cases",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "detail",
+          "name": "details",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -118,6 +118,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/persons/",
               "parts": [
@@ -131,7 +132,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             }

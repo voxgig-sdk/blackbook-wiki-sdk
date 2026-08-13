@@ -23,8 +23,8 @@ module BlackbookWikiTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("BLACKBOOKWIKI_TEST_LIVE")
-    override = getenv("BLACKBOOKWIKI_TEST_OVERRIDE")
+    live = getenv("BLACKBOOK_WIKI_TEST_LIVE")
+    override = getenv("BLACKBOOK_WIKI_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module BlackbookWikiTestRunner
       end
     end
 
-    explain = getenv("BLACKBOOKWIKI_TEST_EXPLAIN")
-    m["BLACKBOOKWIKI_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("BLACKBOOK_WIKI_TEST_EXPLAIN")
+    m["BLACKBOOK_WIKI_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

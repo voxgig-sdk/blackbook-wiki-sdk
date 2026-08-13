@@ -93,8 +93,8 @@ person = client.Person
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `case` | `Array` | No |  |
-| `detail` | `String` | No |  |
+| `cases` | `Array` | No |  |
+| `details` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `name` | `String` | No |  |
 | `position` | `String` | No |  |

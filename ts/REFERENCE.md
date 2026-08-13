@@ -116,8 +116,8 @@ const person = client.Person()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `case` | `any[]` | No |  |
-| `detail` | `string` | No |  |
+| `cases` | `any[]` | No |  |
+| `details` | `string` | No |  |
 | `id` | `number` | No |  |
 | `name` | `string` | No |  |
 | `position` | `string` | No |  |

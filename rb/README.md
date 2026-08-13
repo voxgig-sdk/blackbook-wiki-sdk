@@ -37,7 +37,7 @@ begin
   # list returns an Array of Person records — iterate directly.
   persons = client.Person.list
   persons.each do |item|
-    puts "#{item["id"]} #{item["case"]}"
+    puts "#{item["id"]} #{item["cases"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = BlackbookWikiSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 person = client.Person.list()
 puts person
 ```
@@ -236,8 +237,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `case` |  |
-| `detail` |  |
+| `cases` |  |
+| `details` |  |
 | `id` |  |
 | `name` |  |
 | `position` |  |
@@ -265,8 +266,8 @@ Create an instance: `person = client.Person`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `case` | `Array` |  |
-| `detail` | `String` |  |
+| `cases` | `Array` |  |
+| `details` | `String` |  |
 | `id` | `Integer` |  |
 | `name` | `String` |  |
 | `position` | `String` |  |

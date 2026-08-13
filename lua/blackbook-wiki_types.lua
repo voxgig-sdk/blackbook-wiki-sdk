@@ -7,15 +7,15 @@
 -- edit by hand.
 
 ---@class Person
----@field case? table
----@field detail? string
+---@field cases? table
+---@field details? string
 ---@field id? number
 ---@field name? string
 ---@field position? string
 
 ---@class PersonListMatch
----@field case? table
----@field detail? string
+---@field cases? table
+---@field details? string
 ---@field id? number
 ---@field name? string
 ---@field position? string

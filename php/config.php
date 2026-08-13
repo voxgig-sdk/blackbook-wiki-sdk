@@ -32,14 +32,14 @@ class BlackbookWikiConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'case',
+              'name' => 'cases',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
             ],
             [
               'active' => true,
-              'name' => 'detail',
+              'name' => 'details',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 1,
@@ -94,6 +94,7 @@ class BlackbookWikiConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/persons/',
                   'parts' => [
@@ -107,7 +108,7 @@ class BlackbookWikiConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.results`',
                   ],
                   'index$' => 0,
                 ],

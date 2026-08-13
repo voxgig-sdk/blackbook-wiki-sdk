@@ -35,7 +35,9 @@ const client = new BlackbookWikiSDK()
 
 ### 2. List person records
 
-`list()` resolves to an array of Person objects — iterate it directly:
+`list()` resolves to an array of Person ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const persons = await client.Person().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = BlackbookWikiSDK.test()
 
 const person = await client.Person().list()
-// person is a bare entity populated with mock response data
+// person is the entity, populated with mock response data
+// — call person.data() for the record itself
 console.log(person)
 ```
 
@@ -284,8 +287,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `case` |  |
-| `detail` |  |
+| `cases` |  |
+| `details` |  |
 | `id` |  |
 | `name` |  |
 | `position` |  |
@@ -313,8 +316,8 @@ Create an instance: `const person = client.Person()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `case` | `any[]` |  |
-| `detail` | `string` |  |
+| `cases` | `any[]` |  |
+| `details` | `string` |  |
 | `id` | `number` |  |
 | `name` | `string` |  |
 | `position` | `string` |  |

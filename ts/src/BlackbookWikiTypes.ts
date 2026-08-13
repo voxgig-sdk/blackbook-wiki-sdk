@@ -6,16 +6,16 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Person {
-  case?: any[]
-  detail?: string
+  cases?: any[]
+  details?: string
   id?: number
   name?: string
   position?: string
 }
 
 export interface PersonListMatch {
-  case?: any[]
-  detail?: string
+  cases?: any[]
+  details?: string
   id?: number
   name?: string
   position?: string

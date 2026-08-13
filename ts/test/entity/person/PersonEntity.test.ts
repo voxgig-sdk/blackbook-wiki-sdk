@@ -26,8 +26,8 @@ import {
 describe('PersonEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when BLACKBOOKWIKI_TEST_LIVE=TRUE.
-  afterEach(liveDelay('BLACKBOOKWIKI_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when BLACKBOOK_WIKI_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BLACKBOOK_WIKI_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = BlackbookWikiSDK.test()
@@ -63,7 +63,7 @@ describe('PersonEntity', async () => {
     const person_ref01_ent = client.Person()
     const person_ref01_match: any = {}
 
-    const person_ref01_list = await person_ref01_ent.list(person_ref01_match)
+    const person_ref01_list = (await person_ref01_ent.list(person_ref01_match)).map((e: any) => e.data())
 
 
   })

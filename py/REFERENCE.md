@@ -87,8 +87,8 @@ person = client.Person()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `case` | `list` | No |  |
-| `detail` | `str` | No |  |
+| `cases` | `list` | No |  |
+| `details` | `str` | No |  |
 | `id` | `int` | No |  |
 | `name` | `str` | No |  |
 | `position` | `str` | No |  |

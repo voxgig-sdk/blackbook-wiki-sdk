@@ -6,12 +6,12 @@ main: kit: entity: person: {
 
   fields: [
     {
-      name: "case"
+      name: "cases"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "detail"
+      name: "details"
       req: false
       type: "`$STRING`"
     }
@@ -74,7 +74,7 @@ main: kit: entity: person: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

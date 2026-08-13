@@ -10,10 +10,10 @@
 
 # Person entity data model.
 #
-# @!attribute [rw] case
+# @!attribute [rw] cases
 #   @return [Array, nil]
 #
-# @!attribute [rw] detail
+# @!attribute [rw] details
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -25,8 +25,8 @@
 # @!attribute [rw] position
 #   @return [String, nil]
 Person = Struct.new(
-  :case,
-  :detail,
+  :cases,
+  :details,
   :id,
   :name,
   :position,
@@ -35,10 +35,10 @@ Person = Struct.new(
 
 # Request payload for Person#list.
 #
-# @!attribute [rw] case
+# @!attribute [rw] cases
 #   @return [Array, nil]
 #
-# @!attribute [rw] detail
+# @!attribute [rw] details
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -50,8 +50,8 @@ Person = Struct.new(
 # @!attribute [rw] position
 #   @return [String, nil]
 PersonListMatch = Struct.new(
-  :case,
-  :detail,
+  :cases,
+  :details,
   :id,
   :name,
   :position,

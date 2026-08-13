@@ -98,8 +98,8 @@ fmt.Println(person.GetName()) // "person"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `case` | `[]any` | No |  |
-| `detail` | `string` | No |  |
+| `cases` | `[]any` | No |  |
+| `details` | `string` | No |  |
 | `id` | `int` | No |  |
 | `name` | `string` | No |  |
 | `position` | `string` | No |  |

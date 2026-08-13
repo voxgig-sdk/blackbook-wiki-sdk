@@ -26,14 +26,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "case",
+						"name": "cases",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "detail",
+						"name": "details",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -88,6 +88,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/persons/",
 								"parts": []any{
@@ -101,12 +102,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

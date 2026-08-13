@@ -90,8 +90,8 @@ local person = client:Person(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `case` | `table` | No |  |
-| `detail` | `string` | No |  |
+| `cases` | `table` | No |  |
+| `details` | `string` | No |  |
 | `id` | `number` | No |  |
 | `name` | `string` | No |  |
 | `position` | `string` | No |  |

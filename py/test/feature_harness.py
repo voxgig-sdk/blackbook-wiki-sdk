@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import BlackbookWikiControl
-from core.error import BlackbookWikiError
-from core.result import BlackbookWikiResult
-from core.spec import BlackbookWikiSpec
+from blackbookwiki_sdk.config import make_config
+from blackbookwiki_sdk.features import _make_feature
+from blackbookwiki_sdk.core.control import BlackbookWikiControl
+from blackbookwiki_sdk.core.error import BlackbookWikiError
+from blackbookwiki_sdk.core.result import BlackbookWikiResult
+from blackbookwiki_sdk.core.spec import BlackbookWikiSpec
 
 
 # True when this SDK was generated with the named feature.

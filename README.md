@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = BlackbookWikiSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = BlackbookWikiSDK.test({
+  entity: {
+    person: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const persons = await client.Person().list()
-// persons is an array of bare Person records populated with mock data
+// persons is an array of Person entities, populated with mock data
+// — call persons[0].data() for the record itself
 console.log(persons)
 ```
 
@@ -110,7 +119,7 @@ import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki'
 
 const client = new BlackbookWikiSDK()
 
-// List all persons (returns Person[])
+// List all persons (returns PersonEntity[] — .data() for the record)
 const persons = await client.Person().list()
 for (const person of persons) {
   console.log(person)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/l0v3m0n3y/blackbookwiki](https://github.com/l0v3m0n3y/blackbookwiki)
 

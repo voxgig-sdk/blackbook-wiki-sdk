@@ -92,8 +92,8 @@ $person = $client->Person();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `case` | `array` | No |  |
-| `detail` | `string` | No |  |
+| `cases` | `array` | No |  |
+| `details` | `string` | No |  |
 | `id` | `int` | No |  |
 | `name` | `string` | No |  |
 | `position` | `string` | No |  |

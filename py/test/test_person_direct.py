@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from blackbookwiki_sdk.utility.voxgig_struct import voxgig_struct as vs
 from blackbookwiki_sdk import BlackbookWikiSDK
-from core import helpers
+from blackbookwiki_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _person_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "BLACKBOOKWIKI_TEST_PERSON_ENTID": {},
-        "BLACKBOOKWIKI_TEST_LIVE": "FALSE",
+        "BLACKBOOK_WIKI_TEST_PERSON_ENTID": {},
+        "BLACKBOOK_WIKI_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("BLACKBOOKWIKI_TEST_LIVE") == "TRUE"
+    live = env.get("BLACKBOOK_WIKI_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
