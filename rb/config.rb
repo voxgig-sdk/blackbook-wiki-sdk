@@ -1,6 +1,20 @@
 # BlackbookWiki SDK configuration
 
 module BlackbookWikiConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,39 +40,24 @@ module BlackbookWikiConfig
         "person" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "cases",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "details",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "position",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
           ],
           "name" => "person",
@@ -68,23 +67,18 @@ module BlackbookWikiConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "case_navalny",
                         "orig" => "case_navalny",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "internet_blocking",
                         "orig" => "internet_blocking",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                     ],
@@ -105,10 +99,8 @@ module BlackbookWikiConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

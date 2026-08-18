@@ -15,7 +15,7 @@ require_relative "../BlackbookWiki_sdk"
 module BlackbookWikiFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = BlackbookWikiConfig.make_config["feature"]
+    f = BlackbookWikiConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

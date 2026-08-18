@@ -1,5 +1,8 @@
 -- BlackbookWiki SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -25,39 +28,24 @@ local function make_config()
       ["person"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "cases",
-            ["req"] = false,
             ["type"] = "`$ARRAY`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "details",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "id",
-            ["req"] = false,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "name",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "position",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
           },
         },
         ["name"] = "person",
@@ -67,23 +55,18 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "case_navalny",
                       ["orig"] = "case_navalny",
-                      ["reqd"] = false,
                       ["type"] = "`$BOOLEAN`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "internet_blocking",
                       ["orig"] = "internet_blocking",
-                      ["reqd"] = false,
                       ["type"] = "`$BOOLEAN`",
                     },
                   },
@@ -104,10 +87,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {

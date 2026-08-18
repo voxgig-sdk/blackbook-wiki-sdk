@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://black-book.wiki/api/v1',
+    base: "https://black-book.wiki/api/v1",
 
     headers: {
       "content-type": "application/json"
@@ -55,39 +55,24 @@ class Config {
     "person": {
       "fields": [
         {
-          "active": true,
           "name": "cases",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 0
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "details",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 2
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "position",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         }
       ],
       "name": "person",
@@ -97,23 +82,18 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "case_navalny",
                     "orig": "case_navalny",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "internet_blocking",
                     "orig": "internet_blocking",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   }
                 ]
@@ -133,11 +113,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.results`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

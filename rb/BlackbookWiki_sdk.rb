@@ -28,7 +28,7 @@ class BlackbookWikiSDK
     utility = BlackbookWikiUtility.new
     @_utility = utility
 
-    config = BlackbookWikiConfig.make_config
+    config = BlackbookWikiConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

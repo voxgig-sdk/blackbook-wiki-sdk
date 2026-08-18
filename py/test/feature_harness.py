@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from blackbookwiki_sdk.config import make_config
+from blackbookwiki_sdk.config import shared_config
 from blackbookwiki_sdk.features import _make_feature
 from blackbookwiki_sdk.core.control import BlackbookWikiControl
 from blackbookwiki_sdk.core.error import BlackbookWikiError
@@ -24,7 +24,7 @@ from blackbookwiki_sdk.core.spec import BlackbookWikiSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

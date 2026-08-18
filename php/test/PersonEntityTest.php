@@ -40,7 +40,7 @@ class PersonEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = BlackbookWikiConfig::make_config();
+        $cfg = BlackbookWikiConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = BlackbookWikiSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

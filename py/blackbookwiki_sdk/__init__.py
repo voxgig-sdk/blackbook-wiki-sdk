@@ -23,8 +23,8 @@ class BlackbookWikiSDK:
         utility = BlackbookWikiUtility()
         self._utility = utility
 
-        from blackbookwiki_sdk.config import make_config
-        config = make_config()
+        from blackbookwiki_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

@@ -40,7 +40,7 @@ class BlackbookWikiSDK
         $utility = new BlackbookWikiUtility();
         $this->_utility = $utility;
 
-        $config = BlackbookWikiConfig::make_config();
+        $config = BlackbookWikiConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
