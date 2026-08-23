@@ -247,11 +247,11 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `cases` |  |
-| `details` |  |
-| `id` |  |
-| `name` |  |
-| `position` |  |
+| `cases` | List of cases associated with the person |
+| `details` | Additional details about the person |
+| `id` | Unique identifier for the person |
+| `name` | Full name of the person |
+| `position` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 Operations: List.
 
@@ -276,11 +276,11 @@ Create an instance: `$person = $client->Person();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cases` | `array` |  |
-| `details` | `string` |  |
-| `id` | `int` |  |
-| `name` | `string` |  |
-| `position` | `string` |  |
+| `cases` | `array` | List of cases associated with the person |
+| `details` | `string` | Additional details about the person |
+| `id` | `int` | Unique identifier for the person |
+| `name` | `string` | Full name of the person |
+| `position` | `string` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 #### Example: List
 

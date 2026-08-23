@@ -93,11 +93,11 @@ person = client.Person
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cases` | `Array` | No |  |
-| `details` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `name` | `String` | No |  |
-| `position` | `String` | No |  |
+| `cases` | `Array` | No | List of cases associated with the person |
+| `details` | `String` | No | Additional details about the person |
+| `id` | `Integer` | No | Unique identifier for the person |
+| `name` | `String` | No | Full name of the person |
+| `position` | `String` | No | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 ### Operations
 

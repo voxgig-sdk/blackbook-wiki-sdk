@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,11 +287,11 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `cases` |  |
-| `details` |  |
-| `id` |  |
-| `name` |  |
-| `position` |  |
+| `cases` | List of cases associated with the person |
+| `details` | Additional details about the person |
+| `id` | Unique identifier for the person |
+| `name` | Full name of the person |
+| `position` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 Operations: list.
 
@@ -316,11 +316,11 @@ Create an instance: `const person = client.Person()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cases` | `any[]` |  |
-| `details` | `string` |  |
-| `id` | `number` |  |
-| `name` | `string` |  |
-| `position` | `string` |  |
+| `cases` | `any[]` | List of cases associated with the person |
+| `details` | `string` | Additional details about the person |
+| `id` | `number` | Unique identifier for the person |
+| `name` | `string` | Full name of the person |
+| `position` | `string` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 #### Example: List
 

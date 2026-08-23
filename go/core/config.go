@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "BlackbookWiki",
+			"slug": "blackbook-wiki",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,22 +36,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "cases",
+						"short": "List of cases associated with the person",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "details",
+						"short": "Additional details about the person",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the person",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Full name of the person",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "position",
+						"short": "Position or role of the person (e.g., judge, investigator, prosecutor)",
 						"type": "`$STRING`",
 					},
 				},

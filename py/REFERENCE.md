@@ -87,11 +87,11 @@ person = client.Person()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cases` | `list` | No |  |
-| `details` | `str` | No |  |
-| `id` | `int` | No |  |
-| `name` | `str` | No |  |
-| `position` | `str` | No |  |
+| `cases` | `list` | No | List of cases associated with the person |
+| `details` | `str` | No | Additional details about the person |
+| `id` | `int` | No | Unique identifier for the person |
+| `name` | `str` | No | Full name of the person |
+| `position` | `str` | No | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 ### Operations
 

@@ -33,6 +33,9 @@ class BlackbookWikiConfig
         return [
             "main" => [
                 "name" => "BlackbookWiki",
+                "slug" => "blackbook-wiki",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,22 +58,27 @@ class BlackbookWikiConfig
           'fields' => [
             [
               'name' => 'cases',
+              'short' => 'List of cases associated with the person',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'details',
+              'short' => 'Additional details about the person',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the person',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'name',
+              'short' => 'Full name of the person',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'position',
+              'short' => 'Position or role of the person (e.g., judge, investigator, prosecutor)',
               'type' => '`$STRING`',
             ],
           ],

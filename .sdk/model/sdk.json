@@ -36,30 +36,35 @@
               "active": true,
               "name": "cases",
               "req": false,
+              "short": "List of cases associated with the person",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "details",
               "req": false,
+              "short": "Additional details about the person",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the person",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Full name of the person",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "position",
               "req": false,
+              "short": "Position or role of the person (e.g., judge, investigator, prosecutor)",
               "type": "`$STRING`"
             }
           ],

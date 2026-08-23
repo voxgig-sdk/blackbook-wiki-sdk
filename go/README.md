@@ -6,7 +6,7 @@ The Golang SDK for the BlackbookWiki API — an entity-oriented client using sta
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Person(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,11 +260,11 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"cases"` |  |
-| `"details"` |  |
-| `"id"` |  |
-| `"name"` |  |
-| `"position"` |  |
+| `"cases"` | List of cases associated with the person |
+| `"details"` | Additional details about the person |
+| `"id"` | Unique identifier for the person |
+| `"name"` | Full name of the person |
+| `"position"` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 Operations: List.
 
@@ -289,11 +289,11 @@ Create an instance: `person := client.Person(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cases` | `[]any` |  |
-| `details` | `string` |  |
-| `id` | `int` |  |
-| `name` | `string` |  |
-| `position` | `string` |  |
+| `cases` | `[]any` | List of cases associated with the person |
+| `details` | `string` | Additional details about the person |
+| `id` | `int` | Unique identifier for the person |
+| `name` | `string` | Full name of the person |
+| `position` | `string` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 #### Example: List
 

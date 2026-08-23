@@ -90,11 +90,11 @@ local person = client:Person(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cases` | `table` | No |  |
-| `details` | `string` | No |  |
-| `id` | `number` | No |  |
-| `name` | `string` | No |  |
-| `position` | `string` | No |  |
+| `cases` | `table` | No | List of cases associated with the person |
+| `details` | `string` | No | Additional details about the person |
+| `id` | `number` | No | Unique identifier for the person |
+| `name` | `string` | No | Full name of the person |
+| `position` | `string` | No | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 ### Operations
 

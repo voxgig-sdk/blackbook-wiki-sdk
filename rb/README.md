@@ -237,11 +237,11 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `cases` |  |
-| `details` |  |
-| `id` |  |
-| `name` |  |
-| `position` |  |
+| `cases` | List of cases associated with the person |
+| `details` | Additional details about the person |
+| `id` | Unique identifier for the person |
+| `name` | Full name of the person |
+| `position` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 Operations: List.
 
@@ -266,11 +266,11 @@ Create an instance: `person = client.Person`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cases` | `Array` |  |
-| `details` | `String` |  |
-| `id` | `Integer` |  |
-| `name` | `String` |  |
-| `position` | `String` |  |
+| `cases` | `Array` | List of cases associated with the person |
+| `details` | `String` | Additional details about the person |
+| `id` | `Integer` | Unique identifier for the person |
+| `name` | `String` | Full name of the person |
+| `position` | `String` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 #### Example: List
 

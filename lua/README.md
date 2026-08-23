@@ -231,11 +231,11 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `cases` |  |
-| `details` |  |
-| `id` |  |
-| `name` |  |
-| `position` |  |
+| `cases` | List of cases associated with the person |
+| `details` | Additional details about the person |
+| `id` | Unique identifier for the person |
+| `name` | Full name of the person |
+| `position` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 Operations: List.
 
@@ -260,11 +260,11 @@ Create an instance: `local person = client:Person(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cases` | `table` |  |
-| `details` | `string` |  |
-| `id` | `number` |  |
-| `name` | `string` |  |
-| `position` | `string` |  |
+| `cases` | `table` | List of cases associated with the person |
+| `details` | `string` | Additional details about the person |
+| `id` | `number` | Unique identifier for the person |
+| `name` | `string` | Full name of the person |
+| `position` | `string` | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 #### Example: List
 

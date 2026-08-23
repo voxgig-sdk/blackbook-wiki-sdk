@@ -98,11 +98,11 @@ fmt.Println(person.GetName()) // "person"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cases` | `[]any` | No |  |
-| `details` | `string` | No |  |
-| `id` | `int` | No |  |
-| `name` | `string` | No |  |
-| `position` | `string` | No |  |
+| `cases` | `[]any` | No | List of cases associated with the person |
+| `details` | `string` | No | Additional details about the person |
+| `id` | `int` | No | Unique identifier for the person |
+| `name` | `string` | No | Full name of the person |
+| `position` | `string` | No | Position or role of the person (e.g., judge, investigator, prosecutor) |
 
 ### Operations
 

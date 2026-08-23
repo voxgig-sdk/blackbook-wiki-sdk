@@ -8,26 +8,31 @@ main: kit: entity: person: {
     {
       name: "cases"
       req: false
+      short: "List of cases associated with the person"
       type: "`$ARRAY`"
     }
     {
       name: "details"
       req: false
+      short: "Additional details about the person"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the person"
       type: "`$INTEGER`"
     }
     {
       name: "name"
       req: false
+      short: "Full name of the person"
       type: "`$STRING`"
     }
     {
       name: "position"
       req: false
+      short: "Position or role of the person (e.g., judge, investigator, prosecutor)"
       type: "`$STRING`"
     }
   ]
