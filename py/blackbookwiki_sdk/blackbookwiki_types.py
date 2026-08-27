@@ -25,8 +25,5 @@ class Person(TypedDict, total=False):
 
 
 class PersonListMatch(TypedDict, total=False):
-    cases: list
-    details: str
-    id: int
-    name: str
-    position: str
+    case_navalny: bool
+    internet_blocking: bool

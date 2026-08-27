@@ -35,26 +35,14 @@ Person = Struct.new(
 
 # Request payload for Person#list.
 #
-# @!attribute [rw] cases
-#   @return [Array, nil]
+# @!attribute [rw] case_navalny
+#   @return [Boolean, nil]
 #
-# @!attribute [rw] details
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] position
-#   @return [String, nil]
+# @!attribute [rw] internet_blocking
+#   @return [Boolean, nil]
 PersonListMatch = Struct.new(
-  :cases,
-  :details,
-  :id,
-  :name,
-  :position,
+  :case_navalny,
+  :internet_blocking,
   keyword_init: true
 )
 

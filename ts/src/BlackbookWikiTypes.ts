@@ -14,10 +14,7 @@ export interface Person {
 }
 
 export interface PersonListMatch {
-  cases?: any[]
-  details?: string
-  id?: number
-  name?: string
-  position?: string
+  case_navalny?: boolean
+  internet_blocking?: boolean
 }
 

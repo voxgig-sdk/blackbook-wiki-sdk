@@ -25,10 +25,7 @@ class Person
 /** Request payload for Person#list. */
 class PersonListMatch
 {
-    public ?array $cases = null;
-    public ?string $details = null;
-    public ?int $id = null;
-    public ?string $name = null;
-    public ?string $position = null;
+    public ?bool $case_navalny = null;
+    public ?bool $internet_blocking = null;
 }
 

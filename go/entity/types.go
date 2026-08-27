@@ -23,11 +23,8 @@ type Person struct {
 
 // PersonListMatch is the typed request payload for Person.ListTyped.
 type PersonListMatch struct {
-	Cases *[]any `json:"cases,omitempty"`
-	Details *string `json:"details,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Position *string `json:"position,omitempty"`
+	CaseNavalny *bool `json:"case_navalny,omitempty"`
+	InternetBlocking *bool `json:"internet_blocking,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

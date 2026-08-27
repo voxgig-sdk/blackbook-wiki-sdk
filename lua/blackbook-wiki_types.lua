@@ -14,11 +14,8 @@
 ---@field position? string
 
 ---@class PersonListMatch
----@field cases? table
----@field details? string
----@field id? number
----@field name? string
----@field position? string
+---@field case_navalny? boolean
+---@field internet_blocking? boolean
 
 local M = {}
 
