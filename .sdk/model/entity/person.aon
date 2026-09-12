@@ -68,8 +68,10 @@ main: kit: entity: person: {
           }
           method: "GET"
           orig: "/persons/"
-          parts: [
-            "persons"
+          segments: [
+            {
+              lit: "persons"
+            }
           ]
           select: {
             exist: [

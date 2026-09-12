@@ -83,6 +83,10 @@ class BlackbookWikiConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'person',
           'op' => [
             'list' => [
@@ -109,8 +113,10 @@ class BlackbookWikiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/persons/',
-                  'parts' => [
-                    'persons',
+                  'segments' => [
+                    [
+                      'lit' => 'persons',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -121,6 +127,9 @@ class BlackbookWikiConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.results`',
+                  ],
+                  'parts' => [
+                    'persons',
                   ],
                 ],
               ],
