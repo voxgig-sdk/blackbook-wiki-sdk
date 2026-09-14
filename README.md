@@ -105,7 +105,7 @@ local results, err = client:Person():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
+| TypeScript | `@voxgig-sdk/blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
 | Python | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
 | PHP | `voxgig-sdk/blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/blackbook-wiki-sdk/go` | `go get github.com/voxgig-sdk/blackbook-wiki-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Person():list()
 ### TypeScript
 
 ```ts
-import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki'
+import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki-sdk'
 
 const client = new BlackbookWikiSDK()
 

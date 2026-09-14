@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki'
+import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki-sdk'
 
 const client = new BlackbookWikiSDK()
 ```
@@ -411,7 +411,7 @@ blackbook-wiki/
 Import the SDK from the package root:
 
 ```ts
-import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki'
+import { BlackbookWikiSDK } from '@voxgig-sdk/blackbook-wiki-sdk'
 ```
 
 ### Entity state
