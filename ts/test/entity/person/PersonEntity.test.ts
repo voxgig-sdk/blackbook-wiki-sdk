@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { BlackbookWikiSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('PersonEntity', async () => {
 
     const live = 'TRUE' === process.env.BLACKBOOK_WIKI_TEST_LIVE
     for (const op of ['list']) {
-      if (maybeSkipControl(t, 'entityOp', 'person.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'person.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set BLACKBOOK_WIKI_TEST_PERSON_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"cases","req":false,"short":"List of cases associated with the person","type":"`$ARRAY`","index$":0},{"active":true,"name":"details","req":false,"short":"Additional details about the person","type":"`$STRING`","index$":1},{"active":true,"name":"id","req":false,"short":"Unique identifier for the person","type":"`$INTEGER`","index$":2},{"active":true,"name":"name","req":false,"short":"Full name of the person","type":"`$STRING`","index$":3},{"active":true,"name":"position","req":false,"short":"Position or role of the person (e.g., judge, investigator, prosecutor)","type":"`$STRING`","index$":4}],"id":{"field":"id","name":"id"},"name":"person","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{"query":[{"active":true,"kind":"query","name":"case_navalny","orig":"case_navalny","reqd":false,"type":"`$BOOLEAN`","index$":0},{"active":true,"kind":"query","name":"internet_blocking","orig":"internet_blocking","reqd":false,"type":"`$BOOLEAN`","index$":1}]},"contract":{"id":"GET /persons/","json":"{\"operationId\":\"getPersonsList\",\"parameters\":[{\"description\":\"Filter persons related to the Navalny case\",\"in\":\"query\",\"name\":\"case_navalny\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Filter persons related to internet blocking cases\",\"in\":\"query\",\"name\":\"internet_blocking\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"count\":{\"description\":\"Total number of persons returned\",\"type\":\"integer\"},\"results\":{\"items\":{\"properties\":{\"cases\":{\"description\":\"List of cases associated with the person\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"details\":{\"description\":\"Additional details about the person\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the person\",\"type\":\"integer\"},\"name\":{\"description\":\"Full name of the person\",\"type\":\"string\"},\"position\":{\"description\":\"Position or role of the person (e.g., judge, investigator, prosecutor)\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of persons\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/persons/","segments":[{"lit":"persons"}],"select":{"exist":["case_navalny","internet_blocking"]},"transform":{"req":"`reqdata`","res":"`body.results`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"person","name__orig":"person","Name":"Person","name_":"person","name-":"person","NAME":"PERSON","index$":0}, {"active":true,"entity":"person","key$":"BasicPersonFlow","kind":"basic","name":"BasicPersonFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"person_ref01"}}],"index$":0}]}, 'Person')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['BLACKBOOK_WIKI_TEST_PERSON_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'BLACKBOOK_WIKI_TEST_PERSON_ENTID': idmap,
     'BLACKBOOK_WIKI_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.BLACKBOOK_WIKI_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['BLACKBOOK_WIKI_TEST_PERSON_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new BlackbookWikiSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.BLACKBOOK_WIKI_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

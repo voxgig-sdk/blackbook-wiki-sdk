@@ -1,12 +1,18 @@
 # BlackbookWiki SDK feature factory
 
 from blackbookwiki_sdk.feature.base_feature import BlackbookWikiBaseFeature
+from blackbookwiki_sdk.feature.ratelimit_feature import BlackbookWikiRatelimitFeature
+from blackbookwiki_sdk.feature.retry_feature import BlackbookWikiRetryFeature
 from blackbookwiki_sdk.feature.test_feature import BlackbookWikiTestFeature
+from blackbookwiki_sdk.feature.timeout_feature import BlackbookWikiTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: BlackbookWikiBaseFeature(),
+    "ratelimit": lambda: BlackbookWikiRatelimitFeature(),
+    "retry": lambda: BlackbookWikiRetryFeature(),
     "test": lambda: BlackbookWikiTestFeature(),
+    "timeout": lambda: BlackbookWikiTimeoutFeature(),
 }
 
 
