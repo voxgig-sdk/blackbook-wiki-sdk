@@ -105,12 +105,12 @@ local results, err = client:Person():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
-| Python | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
-| PHP | `voxgig-sdk/blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
+| TypeScript | `@voxgig-sdk/blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| Python | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| PHP | `voxgig-sdk/blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/blackbook-wiki-sdk/go` | `go get github.com/voxgig-sdk/blackbook-wiki-sdk/go@latest` |
-| Ruby | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
-| Lua | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/releases) |
+| Ruby | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| Lua | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/blackbook-wiki-sdk/go-cli` | `go install github.com/voxgig-sdk/blackbook-wiki-sdk/go-cli/cmd/blackbook-wiki@latest` |
 | Go MCP server | `github.com/voxgig-sdk/blackbook-wiki-sdk/go-mcp` | `go get github.com/voxgig-sdk/blackbook-wiki-sdk/go-mcp@latest` |
 
