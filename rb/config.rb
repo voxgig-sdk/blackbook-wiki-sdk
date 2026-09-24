@@ -99,28 +99,33 @@ module BlackbookWikiConfig
           "fields" => [
             {
               "name" => "cases",
-              "short" => "List of cases associated with the person",
+              "title" => "Cases",
               "type" => "`$ARRAY`",
+              "short" => "List of cases associated with the person",
             },
             {
               "name" => "details",
-              "short" => "Additional details about the person",
+              "title" => "Details",
               "type" => "`$STRING`",
+              "short" => "Additional details about the person",
             },
             {
               "name" => "id",
-              "short" => "Unique identifier for the person",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique identifier for the person",
             },
             {
               "name" => "name",
-              "short" => "Full name of the person",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Full name of the person",
             },
             {
               "name" => "position",
-              "short" => "Position or role of the person (e.g., judge, investigator, prosecutor)",
+              "title" => "Position",
               "type" => "`$STRING`",
+              "short" => "Position or role of the person (e.g., judge, investigator, prosecutor)",
             },
           ],
           "id" => {
@@ -134,22 +139,6 @@ module BlackbookWikiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "case_navalny",
-                        "orig" => "case_navalny",
-                        "type" => "`$BOOLEAN`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "internet_blocking",
-                        "orig" => "internet_blocking",
-                        "type" => "`$BOOLEAN`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/persons/",
@@ -158,19 +147,36 @@ module BlackbookWikiConfig
                       "lit" => "persons",
                     },
                   ],
+                  "parts" => [
+                    "persons",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.results`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "case_navalny",
+                        "orig" => "case_navalny",
+                        "type" => "`$BOOLEAN`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "internet_blocking",
+                        "orig" => "internet_blocking",
+                        "type" => "`$BOOLEAN`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "case_navalny",
                       "internet_blocking",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.results`",
-                  },
-                  "parts" => [
-                    "persons",
-                  ],
                 },
               ],
             },

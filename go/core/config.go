@@ -91,28 +91,33 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "cases",
-						"short": "List of cases associated with the person",
+						"title": "Cases",
 						"type": "`$ARRAY`",
+						"short": "List of cases associated with the person",
 					},
 					map[string]any{
 						"name": "details",
-						"short": "Additional details about the person",
+						"title": "Details",
 						"type": "`$STRING`",
+						"short": "Additional details about the person",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the person",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the person",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Full name of the person",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Full name of the person",
 					},
 					map[string]any{
 						"name": "position",
-						"short": "Position or role of the person (e.g., judge, investigator, prosecutor)",
+						"title": "Position",
 						"type": "`$STRING`",
+						"short": "Position or role of the person (e.g., judge, investigator, prosecutor)",
 					},
 				},
 				"id": map[string]any{
@@ -126,22 +131,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "case_navalny",
-											"orig": "case_navalny",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "internet_blocking",
-											"orig": "internet_blocking",
-											"type": "`$BOOLEAN`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/persons/",
@@ -150,18 +139,35 @@ func MakeConfig() map[string]any {
 										"lit": "persons",
 									},
 								},
+								"parts": []any{
+									"persons",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.results`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "case_navalny",
+											"orig": "case_navalny",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "internet_blocking",
+											"orig": "internet_blocking",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"case_navalny",
 										"internet_blocking",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.results`",
-								},
-								"parts": []any{
-									"persons",
 								},
 							},
 						},

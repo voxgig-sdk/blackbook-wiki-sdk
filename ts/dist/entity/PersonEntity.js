@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PersonEntity = void 0;
 const BlackbookWikiEntityBase_1 = require("../BlackbookWikiEntityBase");
-// TODO: needs Entity superclass
 class PersonEntity extends BlackbookWikiEntityBase_1.BlackbookWikiEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

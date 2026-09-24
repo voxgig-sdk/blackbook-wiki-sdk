@@ -19,7 +19,6 @@ import type {
   PersonListMatch,
 } from '../BlackbookWikiTypes'
 
-// TODO: needs Entity superclass
 class PersonEntity extends BlackbookWikiEntityBase<Person> {
 
   constructor(client: BlackbookWikiSDK, entopts: any) {

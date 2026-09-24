@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,28 +107,33 @@ class Config {
             "fields": [
                 {
                     "name": "cases",
-                    "short": "List of cases associated with the person",
-                    "type": "`$ARRAY`"
+                    "title": "Cases",
+                    "type": "`$ARRAY`",
+                    "short": "List of cases associated with the person"
                 },
                 {
                     "name": "details",
-                    "short": "Additional details about the person",
-                    "type": "`$STRING`"
+                    "title": "Details",
+                    "type": "`$STRING`",
+                    "short": "Additional details about the person"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the person",
-                    "type": "`$INTEGER`"
+                    "title": "Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the person"
                 },
                 {
                     "name": "name",
-                    "short": "Full name of the person",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Full name of the person"
                 },
                 {
                     "name": "position",
-                    "short": "Position or role of the person (e.g., judge, investigator, prosecutor)",
-                    "type": "`$STRING`"
+                    "title": "Position",
+                    "type": "`$STRING`",
+                    "short": "Position or role of the person (e.g., judge, investigator, prosecutor)"
                 }
             ],
             "id": {
@@ -149,22 +147,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "case_navalny",
-                                        "orig": "case_navalny",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "internet_blocking",
-                                        "orig": "internet_blocking",
-                                        "type": "`$BOOLEAN`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/persons/",
@@ -173,19 +155,36 @@ class Config {
                                     "lit": "persons"
                                 }
                             ],
+                            "parts": [
+                                "persons"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.results`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "case_navalny",
+                                        "orig": "case_navalny",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "internet_blocking",
+                                        "orig": "internet_blocking",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "case_navalny",
                                     "internet_blocking"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.results`"
-                            },
-                            "parts": [
-                                "persons"
-                            ]
+                            }
                         }
                     ]
                 }

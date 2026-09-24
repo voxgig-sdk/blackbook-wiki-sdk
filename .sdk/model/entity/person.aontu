@@ -1,0 +1,103 @@
+# Entity: person
+
+main: kit: entity: person: {
+
+  alias: field: {}
+
+  fields: {
+    cases: {
+      h: "Cases"
+      n: "cases"
+      r: false
+      sh: "List of cases associated with the person"
+      t: "`$ARRAY`"
+    }
+    details: {
+      h: "Details"
+      n: "details"
+      r: false
+      sh: "Additional details about the person"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the person"
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Full name of the person"
+      t: "`$STRING`"
+    }
+    position: {
+      h: "Position"
+      n: "position"
+      r: false
+      sh: "Position or role of the person (e.g., judge, investigator, prosecutor)"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "person"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /persons/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "case_navalny"
+                or: "case_navalny"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "internet_blocking"
+                or: "internet_blocking"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/persons/"
+          q: {
+            exist: [
+              "case_navalny"
+              "internet_blocking"
+            ]
+          }
+          s: [
+            {
+              lit: "persons"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
