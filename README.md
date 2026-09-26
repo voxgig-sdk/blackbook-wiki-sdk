@@ -106,11 +106,11 @@ local results, err = client:Person():list()
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
-| Python | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
-| PHP | `voxgig-sdk/blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| Python | `voxgig-sdk-blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| PHP | `voxgig-sdk/blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/blackbook-wiki-sdk/go` | `go get github.com/voxgig-sdk/blackbook-wiki-sdk/go@latest` |
-| Ruby | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
-| Lua | `voxgig-sdk-blackbook-wiki` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| Ruby | `voxgig-sdk-blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
+| Lua | `voxgig-sdk-blackbook-wiki-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/blackbook-wiki-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/blackbook-wiki-sdk/go-cli` | `go install github.com/voxgig-sdk/blackbook-wiki-sdk/go-cli/cmd/blackbook-wiki@latest` |
 | Go MCP server | `github.com/voxgig-sdk/blackbook-wiki-sdk/go-mcp` | `go get github.com/voxgig-sdk/blackbook-wiki-sdk/go-mcp@latest` |
 
@@ -339,10 +339,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
