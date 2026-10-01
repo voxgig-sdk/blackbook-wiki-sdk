@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 BlackbookWikiUtility::setRegistrar(function (BlackbookWikiUtility $u): void {
     $u->clean = [BlackbookWikiClean::class, 'call'];
+    $u->clean_add = [BlackbookWikiClean::class, 'add'];
+    $u->clean_explain = [BlackbookWikiDone::class, 'clean_explain'];
     $u->done = [BlackbookWikiDone::class, 'call'];
     $u->make_error = [BlackbookWikiMakeError::class, 'call'];
     $u->feature_add = [BlackbookWikiFeatureAdd::class, 'call'];

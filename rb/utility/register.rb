@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 BlackbookWikiUtility.registrar = ->(u) {
   u.clean = BlackbookWikiUtilities::Clean
+  u.clean_add = BlackbookWikiUtilities::CleanAdd
+  u.clean_explain = BlackbookWikiUtilities::CleanExplain
   u.done = BlackbookWikiUtilities::Done
   u.make_error = BlackbookWikiUtilities::MakeError
   u.feature_add = BlackbookWikiUtilities::FeatureAdd
