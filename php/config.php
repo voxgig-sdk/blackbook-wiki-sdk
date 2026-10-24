@@ -93,6 +93,7 @@ class BlackbookWikiConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -185,11 +186,10 @@ class BlackbookWikiConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'case_navalny',
-                      'internet_blocking',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

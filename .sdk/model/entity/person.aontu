@@ -78,11 +78,9 @@ main: kit: entity: person: {
           }
           m: "GET"
           o: "/persons/"
-          q: {
-            exist: [
-              "case_navalny"
-              "internet_blocking"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

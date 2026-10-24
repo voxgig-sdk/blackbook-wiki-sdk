@@ -20,9 +20,23 @@ const PLAN = [
             "internet_blocking": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "case_navalny",
             "internet_blocking"
+        ],
+        "queryArgs": [
+            {
+                "name": "case_navalny",
+                "wire": "case_navalny"
+            },
+            {
+                "name": "internet_blocking",
+                "wire": "internet_blocking"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -30,13 +44,13 @@ const PLAN = [
             "count": 1,
             "results": [
                 {
+                    "id": 1,
+                    "name": "x",
+                    "position": "x",
                     "cases": [
                         "x"
                     ],
-                    "details": "x",
-                    "id": 1,
-                    "name": "x",
-                    "position": "x"
+                    "details": "x"
                 }
             ]
         },

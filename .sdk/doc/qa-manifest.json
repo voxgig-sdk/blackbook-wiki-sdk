@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Additional details about the person",
+      "Full name of the person",
+      "List of cases associated with the person",
+      "Position or role of the person (for example, judge, investigator, prosecutor)",
+      "Production server",
+      "Successful response with list of persons",
+      "The Blackbook Wiki API provides access to information pertaining to black-book.wiki, allowing developers to interact with the site&#39;s data programmatically. This includes functionalities like fetching a list of relevant persons and additional features related to managing data associated with political motivations and accountability.",
+      "Unique identifier for the person"
+    ]
+  }
 }
